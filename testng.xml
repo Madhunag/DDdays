@@ -7,13 +7,14 @@
 	</listeners>
 	
 
-     	<test name="Validating homePage After User is Signed in ">
+   	<test name="Validating homePage After User is Signed in ">
     	<classes>
       		<class  name="com.DollarDays.testCases.HomePageAfterSigninTest"/> 
         </classes>
    	</test> 
-    	    
- <!--  	<test name="Validating User login">
+
+   
+   	<test name="Validating User login">
     	<classes>
       		<class  name="com.DollarDays.testCases.LoginPageTest"/> 
         </classes>
@@ -25,10 +26,16 @@
         </classes>
    	</test> 
    	
-  <test name="Validating AddressBookPage ">
+   	<test name="Validating My Profile Page">
+    	<classes>
+      		<class  name="com.DollarDays.testCases.MyProfilePageTest"/> 
+        </classes>
+   	</test>
+   	
+   	 <test name="Validating AddressBookPage ">
     	<classes>
       		<class  name="com.DollarDays.testCases.AddressBookPageTest"/> 
         </classes>
-   	</test> -->
+   	</test> 
   
 </suite> <!-- Suite -->

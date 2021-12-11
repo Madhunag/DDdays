@@ -63,12 +63,15 @@
 
 
 
-  <dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>6.14.3</version>
-     <scope>test</scope>
-</dependency>
+ <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.4.0</version>
+		<!-- 	<scope>test</scope>   -->            <!-- This will execute tests present in classes of src/test folder and will skip those in src/main folder			 -->
+			 <scope>compile</scope>  <!-- To execute tests present in classes of src/main along with those in src/test keep scope as compile instead of test -->
+		</dependency>
+
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
   <listeners>
     <listener class-name="com.DollarDays.listeners.Listeners"/>
@@ -10,12 +10,23 @@
         <methods>
           <include name="TC_verifyUserHomePageTitle"/>
           <include name="teardown"/>
-          <include name="TC_Login"/>
-          <include name="TC_CheckUserDropDownList"/>
-          <include name="TC_verifyUserDropDownUrl"/>
           <include name="initialize"/>
+          <include name="TC_Login"/>
+          <include name="TC_verifyUserDropDownUrl"/>
+          <include name="TC_CheckUserDropDownList"/>
         </methods>
       </class> <!-- com.DollarDays.testCases.HomePageAfterSigninTest -->
     </classes>
   </test> <!-- Validating homePage After User is Signed in (failed) -->
+  <test thread-count="5" name="Validating User login(failed)" parallel="tests">
+    <classes>
+      <class name="com.DollarDays.testCases.LoginPageTest">
+        <methods>
+          <include name="initialize"/>
+          <include name="teardown"/>
+          <include name="TC_logintoDD"/>
+        </methods>
+      </class> <!-- com.DollarDays.testCases.LoginPageTest -->
+    </classes>
+  </test> <!-- Validating User login(failed) -->
 </suite> <!-- Failed suite [Suite] -->

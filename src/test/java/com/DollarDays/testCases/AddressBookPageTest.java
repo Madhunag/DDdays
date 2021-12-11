@@ -16,6 +16,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -89,6 +90,7 @@ public class AddressBookPageTest extends BaseClass
 		   System.out.println("Entered AddressBookform values");
 		   addressBook.clickSaveChangesButton();
 		   Thread.sleep(2000);
+		  // driver.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
 	}
 	
 	//common method for actual saved address
@@ -112,6 +114,8 @@ public class AddressBookPageTest extends BaseClass
 	 System.out.println(expList);
 	 return expList;
 	}
+	
+	
  
 @Test(priority=1,description="TestCase verifies AddressBookPage Title is displayed correctly.")	
     public void TC_verifyAddressBookPageTitle() throws IOException
@@ -290,6 +294,7 @@ public class AddressBookPageTest extends BaseClass
 	   List<String> actAddedAddressList=actAddress();
 	   List<String> expAddedAdressList=expAddress(xlfileName,"sheet1",1);
 	   Thread.sleep(1500);
+	 //  driver.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
 	   Assert.assertEquals(actAddedAddressList,expAddedAdressList,"Actual and Expected Address is  not matching");
 	   System.out.println("expected and actual address matching");
 	   logger.info("New Address is added succesfully on clicking NewShipToAddressLink");
@@ -304,6 +309,7 @@ public class AddressBookPageTest extends BaseClass
 		List<String> actEditedAddressList=actAddress();
 	    List<String> expEditedAddressList=expAddress(xlfileName,"sheet1",2);
 	    Thread.sleep(1500);
+   //   driver.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
 	    Assert.assertEquals(actEditedAddressList,expEditedAddressList,"Actual and Expected edited Address lists are not matching");
 	    System.out.println("Address is  edited");
 	    logger.info("Added Address is  edited succesfully");
@@ -317,6 +323,7 @@ public class AddressBookPageTest extends BaseClass
 	 	boolean checkMarkDisplay=addressBook.checkCheckMarkDisplayInAddressBookPage();
 	 
 	    Thread.sleep(1500);
+    //  driver.manage().timeouts().implicitlyWait(50,  TimeUnit.SECONDS);
 	    if(checkMarkDisplay==true) 
 		{
 	    	Assert.assertTrue(true);
@@ -375,6 +382,7 @@ public class AddressBookPageTest extends BaseClass
       {
        addressBook.clickNoButtonInConfirmationBox();
        Thread.sleep(1500);
+    //   driver.manage().timeouts().implicitlyWait(50,  TimeUnit.SECONDS);
 	   boolean AddressBoxDisplay=addressBook.checkSavedAddressBoxDisplay();
 	  
 	  System.out.println("AddressBoxDisplay is : "+AddressBoxDisplay);
@@ -407,6 +415,7 @@ public class AddressBookPageTest extends BaseClass
 	   {
 		 addressBook.clickYesButtonInConfirmationBox();
 		 Thread.sleep(1500);
+		// driver.manage().timeouts().implicitlyWait(50,  TimeUnit.SECONDS);
 	     boolean AddressBoxDisplay=addressBook.checkSavedAddressBoxDisplay();
 	     System.out.println("AddressBoxDisplay is : "+AddressBoxDisplay);
          if(AddressBoxDisplay==false)
@@ -434,12 +443,14 @@ public class AddressBookPageTest extends BaseClass
      {
 	   addressBook.clickAddNewShipToAddressLink();
  	//  JavascriptExecutor js = (JavascriptExecutor)driver;
-    //  js.executeScript("window.scrollBy(0,+200)");
+    //  js.executeScript("window.scrollBy(0,200)","");
  	   boolean countrydrpdndisplay=addressBook.checkCountryIsADropdown();
        Assert.assertEquals(countrydrpdndisplay, true,"Country is not a Dropdown List");
        logger.info("Country  is   verified as a DropdownList successfully.");
        System.out.println("Country is a DropdownList");
        Thread.sleep(1000);
+       WebDriverWait wait=new WebDriverWait(driver, 30);
+  //   driver.manage().timeouts().implicitlyWait(50,  TimeUnit.SECONDS);
      }
       
 @Test(priority=12,dependsOnMethods={"TC_verifyCountryDropdownIsAList"},description="TestCase verifies Country's default value is United States of America.")
@@ -490,6 +501,7 @@ public class AddressBookPageTest extends BaseClass
  	 
 	  addressBook.clickReceivTypeCommWithoutShipDock();
  	  Thread.sleep(1500);
+ 	//  driver.manage().timeouts().implicitlyWait(50,  TimeUnit.SECONDS);
  	  String companyNameAlert= addressBook.getcompanyNameAlertMsg();
  	  Assert.assertEquals(companyNameAlert, "Company name/Organization name is required for commercial shipments");
  	  System.out.println("Alert is displayed for companyname for receiving type Commercial shipments without shipping dock:"+companyNameAlert);
@@ -557,9 +569,26 @@ public class AddressBookPageTest extends BaseClass
  	  System.out.println( zipcodeAlert +"is displayed for empty zipcode");
  		 
  	 }
+//common method 
+/*	public void nameMaxLength(String namefield,String xlfileName, String sheetname, int rowno,int cellno) throws IOException
+	{
+		
+		String[] data=XLUtils.getRowData(xlfileName,sheetname,rowno);
+		String name=data[cellno];
+		
+		if(namefield.equals("firstname"))
+		{
+			addressBook.setFirstNameText(name);
+			 String firstNameAttrValue=addressBook.getFirstNameAttributeValue();
+			  String firstNameAttrlength=addressBook.getFirstNameAttrMaxlength();
+			  int maxlength=Integer.parseInt(firstNameAttrlength);
+		}
+	}*/
+
+
  
 @Test(priority=17,dependsOnMethods={"TC_verifyCountryDropdownDefaultValue"},description="TestCase verifies FirstName textbox accepts characters until maxlength defined")
-  public void TC_verifyFirstNameTextboxMaxLength() throws InterruptedException, IOException
+public void TC_verifyFirstNameTextboxMaxLength() throws InterruptedException, IOException
   {
 	  
 	  String xlfileName="ABFieldsData.xlsx";
@@ -571,10 +600,8 @@ public class AddressBookPageTest extends BaseClass
       String firstNameAttrValue=addressBook.getFirstNameAttributeValue();
 	  String firstNameAttrlength=addressBook.getFirstNameAttrMaxlength();
 	  int maxlength=Integer.parseInt(firstNameAttrlength);
-	  System.out.println("Maxlengthdefined for firstname textbox is:"+maxlength);
-	  try
-	  {
-		  if(firstNameAttrValue.length()<=maxlength)
+	  System.out.println("Maxlengthdefined for first name textbox is:"+maxlength);
+	  if(firstNameAttrValue.length()<=maxlength)
 		  {
 	  Assert.assertTrue(true);
 	  logger.debug("Firstname textbox contains"+firstNameAttrValue.length()+"characters");
@@ -582,16 +609,16 @@ public class AddressBookPageTest extends BaseClass
 	  logger.info("Firstname textbox is accepting up to max 26 characters");
 	  System.out.println("Firstname textbox is accepting up to max 26 characters");
 	      }
-	  }
-	   catch(Exception e)
-	  {
+	  else
+	    {
 		  logger.info("e.getMessage()+\"firstname does not accept more than 26 characters");
-		  System.out.println(e.getMessage()+"firstname does not accept more than 26 characters");
-	  }
-  }
+		  System.out.println("firstname does not accept more than 26 characters");
+	    }
+     }
+  
 	 
 @Test(priority=18,dependsOnMethods={"TC_verifyCountryDropdownDefaultValue"},description="TestCase verifies LastName textbox accepts characters until maxlength defined")
-  public void TC_verifyLastNameTextboxMaxlength() throws InterruptedException, IOException
+public void TC_verifyLastNameTextboxMaxlength() throws InterruptedException, IOException
   {
 	 
 	  String  xlfileName="ABFieldsData.xlsx";
@@ -603,21 +630,20 @@ public class AddressBookPageTest extends BaseClass
       String lastNameAttrValue=addressBook.getLastNameAttributeValue();
 	  String lastNameAttrlength=addressBook.getLastNameAttrMaxlength();
 	  int maxlength=Integer.parseInt(lastNameAttrlength);
-	  System.out.println("Maxlengthdefined for lastname textbox is:"+maxlength);
-	  try
+	  System.out.println("Maxlengthdefined for lastname textbox is:"+maxlength); 
+	  if(lastNameAttrValue.length()<=maxlength)
 	  {
-		  if(lastNameAttrValue.length()<=maxlength)
-		  {
-	  Assert.assertTrue(true);
-	  logger.debug("Lasttname textbox contains"+lastNameAttrValue.length()+"characters");
-	  System.out.println("Lasttname textbox contains"+lastNameAttrValue.length()+"characters");
-	  logger.info("Lasttname textbox is accepting up to max 26 characters");
-	  System.out.println("Lasttname textbox is accepting up to max 26 characters");
-	      }
-	  }
-	   catch(Exception e)
+	    Assert.assertTrue(true);
+	    logger.debug("Lasttname textbox contains"+lastNameAttrValue.length()+"characters");
+	    System.out.println("Lasttname textbox contains"+lastNameAttrValue.length()+"characters");
+	    logger.info("Lasttname textbox is accepting up to max 26 characters");
+	    System.out.println("Lasttname textbox is accepting up to max 26 characters");
+	   }
+	  
+	  else
 	  {
-		  System.out.println(e.getMessage()+"lastname does not accept more than 26 characters");
+		  logger.info("e.getMessage()+\"firstname does not accept more than 26 characters");
+		  System.out.println("lastname does not accept more than 26 characters");
 	  }
   }
 @Test(priority=19,dependsOnMethods={"TC_verifyCountryDropdownDefaultValue"},description="TestCase verifies StresstAddress textbox accepts alphanumeric characters.")
@@ -631,6 +657,7 @@ public class AddressBookPageTest extends BaseClass
 	addressBook.setStrtAddrText(streetAddress);
 	String stadAttrValue=addressBook.getStrtAddrAttributeValue();
 	Thread.sleep(1500);
+//	driver.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
 	Pattern letter  = Pattern.compile("[a-zA-z]");
 	Pattern digit   = Pattern.compile("[0-9]");
 	Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
@@ -652,8 +679,7 @@ public class AddressBookPageTest extends BaseClass
 		logger.info("Street textbox is not accepting both alphanumeric and specialchracters");
 		System.out.println("Street textbox is not accepting both alphanumeric and specialchracters");
 	    Assert.assertTrue(false);
-	    
-	 }
+     }
 	    
 	  }
 @Test(priority=20,dependsOnMethods={"TC_verifyCountryDropdownDefaultValue"},description="TestCase verifies Apt textbox accepts alphanumeric characters.")
@@ -667,6 +693,7 @@ public class AddressBookPageTest extends BaseClass
 	addressBook.setAptText(Aptnum);
 	String aptAttrValue=addressBook.getAptAttributeValue();
 	Thread.sleep(1500);
+	//driver.manage().timeouts().implicitlyWait(10,  TimeUnit.SECONDS);
     Pattern letter  = Pattern.compile("[a-zA-z]");
     Pattern digit   = Pattern.compile("[0-9]");
     Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");

@@ -1,6 +1,7 @@
 package com.DollarDays.utilities;
 
 import java.util.Properties;
+
 import java.util.concurrent.TimeUnit;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -133,7 +134,7 @@ public class BaseClass
 		HomePage hp =new HomePage(driver);
 		logger.debug("Clicking  SigninIcon in  the home page to view the DropDown List ");
 		hp.clickIconSignin();
-	logger.info("Clicking SignIn option from the DropDown List in the HomePage");
+	    logger.info("Clicking SignIn option from the DropDown List in the HomePage");
 		hp.clickSignInLink();
 		logger.debug("Navigated to Login Page");
 		driver.manage().deleteAllCookies();

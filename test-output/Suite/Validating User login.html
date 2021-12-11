@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Aug 13 15:38:26 PDT 2021</td>
+<td>Started on:</td><td>Thu Aug 26 14:58:55 PDT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>94 seconds (94964 ms)</td>
+<tr><td>Total time:</td><td>78 seconds (78430 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -78,41 +78,45 @@ function toggleAllBoxes() {
 <td title='com.DollarDays.testCases.LoginPageTest.TC_logintoDD()'><b>TC_logintoDD</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method: Testcase checks if the user is able to login successfully with valid username/password combination</td>
 <td><div><pre>java.lang.AssertionError: Could not Login to Dollardays with valid credentials.  Testcase failed expected [true] but found [false]
 	at com.DollarDays.testCases.LoginPageTest.TC_logintoDD(LoginPageTest.java:114)
+	at java.util.ArrayList.forEach(Unknown Source)
 	at java.util.concurrent.FutureTask.run(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace584583799", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace584583799'><pre>java.lang.AssertionError: Could not Login to Dollardays with valid credentials.  Testcase failed expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:568)
+... Removed 23 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1954031728", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1954031728'><pre>java.lang.AssertionError: Could not Login to Dollardays with valid credentials.  Testcase failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:819)
 	at com.DollarDays.testCases.LoginPageTest.TC_logintoDD(LoginPageTest.java:114)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
-	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
-	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:28)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:418)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
 	at java.util.concurrent.FutureTask.run(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>21</td>
-<td>com.DollarDays.testCases.LoginPageTest@4fbe37eb</td></tr>
+<td>16</td>
+<td>com.DollarDays.testCases.LoginPageTest@2034b64c</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -122,25 +126,25 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.DollarDays.testCases.LoginPageTest.TC_verifyCreateAccountButton()'><b>TC_verifyCreateAccountButton</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method:  TestCase verifies functionality of CreateAccount button .</td>
-<td></td>
-<td>11</td>
-<td>com.DollarDays.testCases.LoginPageTest@4fbe37eb</td></tr>
-<tr>
 <td title='com.DollarDays.testCases.LoginPageTest.TC_verifyForgotEmailPasswordLink()'><b>TC_verifyForgotEmailPasswordLink</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method:  TestCase verifies the navigation of Forgot password link .</td>
 <td></td>
 <td>2</td>
-<td>com.DollarDays.testCases.LoginPageTest@4fbe37eb</td></tr>
+<td>com.DollarDays.testCases.LoginPageTest@2034b64c</td></tr>
 <tr>
 <td title='com.DollarDays.testCases.LoginPageTest.TC_verifyLoginPageMandatoryfields()'><b>TC_verifyLoginPageMandatoryfields</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method:  TestCase verifies Email Address and Password fields are mandatory in LoginPage.</td>
 <td></td>
 <td>0</td>
-<td>com.DollarDays.testCases.LoginPageTest@4fbe37eb</td></tr>
+<td>com.DollarDays.testCases.LoginPageTest@2034b64c</td></tr>
 <tr>
 <td title='com.DollarDays.testCases.LoginPageTest.TC_verifyLoginPageTitle()'><b>TC_verifyLoginPageTitle</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method:  TestCase verifies LoginPage Title is displayed correctly.</td>
 <td></td>
-<td>16</td>
-<td>com.DollarDays.testCases.LoginPageTest@4fbe37eb</td></tr>
+<td>13</td>
+<td>com.DollarDays.testCases.LoginPageTest@2034b64c</td></tr>
+<tr>
+<td title='com.DollarDays.testCases.LoginPageTest.TC_verifyCreateAccountButton()'><b>TC_verifyCreateAccountButton</b><br>Test class: com.DollarDays.testCases.LoginPageTest<br>Test method:  TestCase verifies functionality of CreateAccount button .</td>
+<td></td>
+<td>6</td>
+<td>com.DollarDays.testCases.LoginPageTest@2034b64c</td></tr>
 </table><p>
 </body>
 </html>

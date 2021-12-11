@@ -64,10 +64,9 @@ public class AddressBookPage
 		/*Actions actions = new Actions(driver);
 	   actions.moveToElement(wbaddNewShipToAddressLink);
 		actions.perform();*/
-	
+		
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", wbaddNewShipToAddressLink);
-		Thread.sleep(500); 
-	    elementUtils.performElementClick(wbaddNewShipToAddressLink);
+		  elementUtils.performElementClick(wbaddNewShipToAddressLink);
 	}
 	
 	//+ADD A NEW SHIP TO ADDRESS  Link Display

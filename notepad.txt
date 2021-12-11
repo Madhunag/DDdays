@@ -1,0 +1,160 @@
+javaScriptExecutor javascript= JavaScriptExecutor(driver);
+String domainname=javascript.executeScript("return document.domain");
+WebElement webele=driver.findElement
+Actions act=new Actions(driver);
+
+act.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).click(webele).keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+driver.navigate().to("");
+driver.navigate().back();
+driver.navigate().forward();
+File src=(TakeScreenshot(driver)).getScreenshotAs(OOUTPUTType.File);
+FleUtils.copyFile(SRC,new File("D:\\screenshot.jpg));
+System.setProperty("webdriver.chrome.driver","path");
+WebDriver driver=new ChromeDriver();
+Alert a1=driver.switchTo().alert();
+Alert a2=driver.switchTo().alert();
+a2.getText();
+a2.dismiss();
+Alert a3=driver.switchTo().alert();
+a3.getText();
+a3.sendKeys("This is john");
+
+a1.getText();
+a1.acc
+s.accept();
+s.dismiss();
+
+driver.manage().window().maximize();
+handling unexpected alert
+driver.switchTo().alert().dismiss();
+JavaScriptExecutor js=JavaScriptExecutor(driver);
+js.ExecuteScript("arguments[0].setAttribute('Style)',Arguments[1]);
+.getCssValue()
+identify the webElement with the help of locator and store in a variable of type webelement.
+element.getCssValue("color");
+element.getCssValue("font-family");
+element.getCssValue("text-align");
+WebElement element=driver.findElement(By.xpath(""));
+Actions act=new Actions(driver);
+act.moveToElement(element).moveToelement(subelement).click().perform();
+WebDriver wait=new WebDriverWait(driver,10);
+wait.until(ExpectedConditions.titleContains("Google"));
+
+page scroll using JavaScriptExecutor
+JavaScriptExecutor js=JavaScriptExecutor(driver);
+js.ExecuteScript("scroll(0,250)");
+js.ExecuteScript(window.scrollTo(
+
+Actions act=new Actions(driver);
+
+
+act.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+
+scroll to bottom in slow motion
+for(int second=0;;second++)
+{
+if(second>60)
+{
+break;}
+((JavaScriptExecutor)driver)).executeScript("window.scrollBy(0,400)","")
+
+JavaScriptExecutor)driver).executeScript("arguments[0].scrollInToView();"driver
+
+withoutusing Actions class
+for(int i=0;i<10;i++)
+{
+driver.findElement(By.tagName("body").sendKeys(Keys.Down));
+List<WebElement> links=driver.findElement(By.tagName("a"))
+links.size();
+for(int i=0;i<links.size();i++)
+System.oplm(links.getText();
+links.getAttribute("href");
+
+How to read csv files using java
+
+CSVReader csv=new CSVReader(new FileReader(filepath));
+List<String> li=csv.readAll();
+Iterator it=li.iterator();
+while(it.hasNext())
+{
+String[] str=it.Next();
+System.out.println(int i=0;iNstr.length;i++);
+{
+Systemo.p.ln(str[i]);
+}
+}
+FileInputStream fis=new FileInputStream(new FilePath);
+XSSFWorkbook wb=new XSSFWorkbook(fis);
+XSSFSheet sh=wb.getSheetAt(sheetname);
+s.o.p.ln(s.getRow(o).getcell(0).getStringCellValue());
+sh.getRow(0).createCell(0).setCellValue("");
+sh.getRow(1).createCell(1).setCellValue("");
+FileOutPutStream fout=new FileOutputStream(new File(
+wb.write(fout))
+
+FileInputStream fis=new FileInputStream(new File(""));
+Properties prop=new Properties();
+prop.load(fis);
+prop.getProperty("Google_URL");
+driver.get("http://username:password@
+
+a.sendKeys(fname,Keys.chord(Keys.CONTROL,"a")).perform();
+a.sendKeys(fname,Keys.chord(Keys.CONTROL,"c")).perform()
+driver.navigate().to("javascript:document.getElementById
+driver.findElements(By.tagName("iframe"));
+List<WebElement> iframe
+
+Integer.parseInt(exe.executeScript("return window.length").toString());
+return window.length
+driver.switchTo().frame(
+driver.switchTo().frame(if1)
+driver.switchTo().defaultContent();
+HashMap<Integer,String> hm=new HashMap<Integer,String>();
+hm.put(0,"df");
+hm.put(1."sfd");
+s.o.p.ln(hm);
+hm.remove(1);
+hm.remove("sd");
+hm.put(1,"sgff");
+iterate over map elements
+entrySet method in Map interview returns collection view of the map.
+for(Map.Entry<Integer,String> mp:hm.entrySet()
+{
+Map.Entry<Integer,String> mp:hm.entrySet()
+it key=mp.getKey();
+mp.getVALUE
+
+Linked HashMap maintains the insertion order
+Map<Integer,String> lhm=new LinkedHashMap<Integer,String>();
+lhm.put(1,"dfsd");
+lhm.put(2,"dsfds");
+for(Map.Entry<Integer,String> mp:lhm.entrySet());
+
+TreeMap sorts the values based on the keys.
+It implements navigable interface
+Map<Integer,String> mp=new TreeMap<Integer,String>()
+{
+mp.put(1,"dgedfr");
+mp.put(2,"sfret");
+}
+for(Map.Entry<Integer,String> me:mp.entrySet())
+{
+sorts the elements based on the keys
+fetch all keys and values from map
+keySet and Values
+Map<Integer,String> mp=new TreeMap<Integer,String>()
+{
+mp.put(1,"dfsdf");
+mp.put(2,"dsfsd");
+}
+set<Integer> keys=mp.keySet();
+Set<String> values=mp.Values();
+for(int k:keys)
+{
+System.out.println(x);
+}
+for(String s:values)
+{
+System.out.println(s);
+}
+HashMap is converted to set using keySet and values 
